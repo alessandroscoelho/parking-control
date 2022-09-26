@@ -13,5 +13,6 @@ public class ParkingSpotController {
 
 	@Autowired
 	ParkingSpotService parkingSpotService;
+
 	
 }
