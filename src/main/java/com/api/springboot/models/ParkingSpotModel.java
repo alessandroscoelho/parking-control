@@ -1,12 +1,10 @@
 package com.api.springboot.models;
 
+
+import jakarta.persistence.*;
+
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "TB_PARKING_SPOT")
@@ -18,21 +16,21 @@ public class ParkingSpotModel implements Serializable {
 	private Integer id;
 	@Column(nullable = false, unique = true, length = 10)
 	private String numeroDaVaga;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = false, unique = true, length = 7)
 	private String placaDoVeiculo;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = false, unique = false, length = 10)
 	private String marcaDoVeiculo;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = false, unique = false, length = 10)
 	private String modeloDoVeiculo;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = false, unique = false, length = 10)
 	private String corDoVeiculo;
-	@Column(nullable = false, unique = true, length = 10)
-	private String dataRegistro;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = false, unique = false, length = 10)
+	private LocalDateTime dataRegistro;
+	@Column(nullable = false, unique = true, length = 50)
 	private String nomeDoResponsavel;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = false, unique = false, length = 10)
 	private String apartamento;
-	@Column(nullable = false, unique = true, length = 10)
+	@Column(nullable = false, unique = false, length = 10)
 	private String bloco;
 
 	public ParkingSpotModel() {
@@ -40,7 +38,7 @@ public class ParkingSpotModel implements Serializable {
 	}
 
 	public ParkingSpotModel(String numeroDaVaga, String placaDoVeiculo, String marcaDoVeiculo, String modeloDoVeiculo,
-			String corDoVeiculo, String dataRegistro, String nomeDoResponsavel, String apartamento, String bloco) {
+			String corDoVeiculo, LocalDateTime dataRegistro, String nomeDoResponsavel, String apartamento, String bloco) {
 		super();
 		this.numeroDaVaga = numeroDaVaga;
 		this.placaDoVeiculo = placaDoVeiculo;
@@ -58,7 +56,7 @@ public class ParkingSpotModel implements Serializable {
 		return id;
 	}
 
-	public void Integer(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -102,11 +100,11 @@ public class ParkingSpotModel implements Serializable {
 		this.corDoVeiculo = corDoVeiculo;
 	}
 
-	public String getDataRegistro() {
+	public LocalDateTime getDataRegistro() {
 		return dataRegistro;
 	}
 
-	public void setDataRegistro(String dataRegistro) {
+	public void setDataRegistro(LocalDateTime dataRegistro) {
 		this.dataRegistro = dataRegistro;
 	}
 
@@ -118,8 +116,8 @@ public class ParkingSpotModel implements Serializable {
 		this.nomeDoResponsavel = nomeDoResponsavel;
 	}
 
-	public String getApartamento() {
-		return apartamento;
+	public String getApartamento(String apartamento) {
+		return this.apartamento;
 	}
 
 	public void setApartamento(String apartamento) {
